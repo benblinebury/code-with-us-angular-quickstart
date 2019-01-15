@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Customer } from './model';
+import { Customer} from './models/Customer';
 
 @Component({
   selector: 'my-app',
@@ -40,9 +40,9 @@ import { Customer } from './model';
       <label>
         State:
         <select [(ngModel)]="customer.address.state">
-          <option>California</option>
-          <option>Jalisco</option>
-          <option>Quebec</option>
+          <option>NJ</option>
+          <option>CA</option>
+          <option>ON</option>
         </select>
       </label>
     </fieldset>
@@ -64,12 +64,12 @@ import { Customer } from './model';
 export class AppComponent {
   customer: Customer = {
     id: 1,
-    name: 'Alex Smith',
+    name: 'Ben',
     address: {
-      street: '123 Main Street',
-      city: 'Anytown',
-      state: 'California',
-      region: 'West'
+      city: 'Centerton',
+      street: '10 Maple Road',
+      state: 'NJ',
+      region: 'East'
     }
   };
 
