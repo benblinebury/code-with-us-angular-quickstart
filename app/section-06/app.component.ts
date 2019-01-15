@@ -10,6 +10,8 @@ import { Customer } from './model';
 })
 
 export class AppComponent {
+  regions = ['North', 'South', 'East', 'West', 'Northeast', 'Midwest', 'Southwest', 'Dirty South'];
+  states = ['NJ', 'TX', 'CA', 'ON', 'IL', 'GA'];
 
   customers: Customer[] = [
     {
@@ -76,7 +78,5 @@ export class AppComponent {
 
   customer: Customer;
 
-  hideAddress = false;
-
-  regions = ['North', 'South', 'East', 'West', 'Northeast', 'Midwest', 'Southwest', 'Dirty South'];
+  showAddress = true;
 }

@@ -4,6 +4,6 @@ h1 {
 }
 
 .selected {
-  color: purple;
+  color: red;
   font-weight: bold;
 }
