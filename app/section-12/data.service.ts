@@ -1,11 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';  // <-- import Http & Headers
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http'; // <-- import Http & Headers
+import {Customer} from './model';
+import {LoggerService} from './logger.service';
 
-import { Customer }      from './model';
-import { LoggerService } from './logger.service';
-
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/catch'; // <-- add rxjs operator extensions used here
 import 'rxjs/add/operator/do';
@@ -17,10 +16,12 @@ import 'rxjs/add/observable/throw'; // <-- add rxjs Observable extensions used h
 @Injectable()
 export class DataService {
   private customersUrl = 'api/customers';
+  private statesUrl = 'api/states';
 
   constructor(
     private http: Http,  // <-- inject http
-    private logger: LoggerService) { }
+    private logger: LoggerService) {
+  }
 
   /** Get existing customers as a Promise */
   getCustomersP(): Promise<Customer[]> {
@@ -46,6 +47,23 @@ export class DataService {
 
     return this.http.get(this.customersUrl)
       .map(response => response.json().data as Customer[])  // <-- extract data
-      .do(custs => this.logger.log(`Got ${custs.length} customers`));
+      .do(custs => this.logger.log(`Got ${custs.length} customers`))
+      .catch(error => this.handleError(error));
+  }
+
+  getStates(): Observable<string[]> {
+    this.logger.log('Getting states as an observable via Http ...')
+
+    return this.http.get(this.statesUrl)
+      .map(response => {
+        return response.json().data as string[];
+      })
+      .do(states => this.logger.log(`Got ${states.length} states.`))
+      .catch(error => this.handleError(error));
+  }
+
+  handleError(error: any): Observable<any> {
+    this.logger.log(`An error occured: ${error}`);
+    return Observable.throw('Something went wrong. Please check the console.');
   }
 }
