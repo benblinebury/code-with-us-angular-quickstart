@@ -13,7 +13,4 @@ export class CustomerDetailComponent {
   customer: Customer;
 
   showAddress = true;
-
-  regions   = ['East', 'Midwest', 'North', 'South', 'West'];
-  states    = ['California', 'Illinois', 'Jalisco', 'Quebec'];
 }

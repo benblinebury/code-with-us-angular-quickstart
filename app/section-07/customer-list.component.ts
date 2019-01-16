@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { Customer } from './model';
+import {Customer} from './model';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +9,7 @@ import { Customer } from './model';
   styleUrls: ['customer-list.component.css']
 })
 
-export class CustomerListComponent  {
+export class CustomerListComponent {
 
   customer: Customer;
 

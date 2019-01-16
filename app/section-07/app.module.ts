@@ -1,10 +1,11 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent }            from './app.component';
-import { CustomerDetailComponent } from './customer-detail.component';
-import { CustomerListComponent }   from './customer-list.component';
+import {AppComponent} from './app.component';
+import {AddressComponent} from './address.component';
+import {CustomerDetailComponent} from './customer-detail.component';
+import {CustomerListComponent} from './customer-list.component';
 
 @NgModule({
   imports: [                  // What stuff do I need?
@@ -13,9 +14,11 @@ import { CustomerListComponent }   from './customer-list.component';
   ],
   declarations: [             // What's in my app module?
     AppComponent,
+    AddressComponent,
     CustomerDetailComponent,
     CustomerListComponent
   ],
-  bootstrap: [ AppComponent ] // Where do I start?
+  bootstrap: [AppComponent] // Where do I start?
 })
-export class AppModule { }
+export class AppModule {
+}
