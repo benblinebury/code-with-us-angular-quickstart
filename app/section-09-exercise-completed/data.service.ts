@@ -1,15 +1,16 @@
 // Observable DataService
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Customer }  from './model';
-import { createTestCustomers } from '../test-data';
+import {Customer} from './model';
+import {createTestCustomers} from '../test-data';
 
-import { LoggerService } from './logger.service';
+import {LoggerService} from './logger.service';
 
 @Injectable()
 export class DataService {
 
-  constructor(private logger: LoggerService) { }
+  constructor(private logger: LoggerService) {
+  }
 
   getCustomers(): Customer[] {
     const customers = createTestCustomers();
